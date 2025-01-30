@@ -105,6 +105,16 @@ You might consider doing some research on Trinidad and Tobago to see why plastic
 
 1.  Plot, using histograms, the distribution of plastic waste per capita faceted by continent. What can you say about how the continents compare to each other in terms of their plastic waste per capita?
 
+
+```{r Addition one: faceted by continent, eval=TRUE}
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2) +
+  facet_wrap(~ continent)
+```
+
+Most of the continents are similiar in their plastic waste per capita. Africa and Asia are the biggest exceptions to this, both having several countries that have a plastic waste per capita of 0 rather than 0.2.
+
+
 ```{marginfigure}
 **NOTE:** From this point onwards the plots and the output of the code are not displayed in the lab instructions, but you can and should the code and view the results yourself.
 ```
@@ -150,9 +160,20 @@ ggplot(data = plastic_waste,
 
 This still doesn't look great...
 
-1.  Recreate the density plots above using a different (lower) alpha level that works better for displaying the density curves for all continents.
+2.  Recreate the density plots above using a different (lower) alpha level that works better for displaying the density curves for all continents.
 
-2.  Describe why we defined the `color` and `fill` of the curves by mapping aesthetics of the plot but we defined the `alpha` level as a characteristic of the plotting geom.
+```{r Better alpha, eval=TRUE}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density(alpha = 0.3)
+```
+
+
+3.  Describe why we defined the `color` and `fill` of the curves by mapping aesthetics of the plot but we defined the `alpha` level as a characteristic of the plotting geom.
+
+Color and fill are both assigned to specific category, whereas alpha is not. Alpha takes effect regardless of category. It could be defined in the same way as color and fill if it changed opacity based on category rather than changing the opacity of all categories equally.
 
 🧶 ✅ ⬆️ *Now is a good time to knit your document and commit and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
