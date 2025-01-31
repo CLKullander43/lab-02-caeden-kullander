@@ -1,11 +1,15 @@
 ---
 title: "Lab 02 - Global plastic waste"
-output: 
-  tufte::tufte_html:
-    tufte_variant: "envisioned"
-    highlight: pygments
-    css: ../lab.css
+output:
+  html_document:
+  pdf_document: 
+    latex_engine: xelatex
+    fig_height: 5
+    highlight: tango
 link-citations: true
+editor_options:
+  markdown:
+    wrap: sentence
 ---
 
 ```{r include = FALSE}
@@ -284,6 +288,9 @@ plastic_waste %>%
          subtitle = "by continent") +
     theme_minimal()
 ```
+
+I didn't recreate the plot, as the code was already provided.
+There is some corelation between them, but it is not a consistent line, as it plateaus at just over 0.2 plastic waste per capita.
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
 
